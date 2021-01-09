@@ -3,22 +3,25 @@ import { Image, Text, View } from 'react-native'
 import styles from './styles'
 
 
-export default function Post() {
+export default function Post({post}) {
+    console.log(post)
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{ uri: 'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}} />
+            <Image style={styles.image} source={{ uri: post.image}} />
 
-            <Text style={styles.bedroom}>1 bed 1 bedroom</Text>
+            <Text style={styles.bedroom}>{post.bed} bed {post.bedroom} bedroom</Text>
 
-            <Text numberOfLines={2} style={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea ex ipsam iusto nobis. In dolore dolores ea minus nostrum nemo dolorum esse eaque dolor, commodi molestiae, iste, blanditiis id!</Text>
+            <Text numberOfLines={2} style={styles.description}>
+                {post.type} {post.title}
+            </Text>
 
             <Text style={styles.prices}>
-                <Text style={styles.oldPrice}>$36</Text>
-                <Text style={styles.newPrice}>  $30 </Text>
+                <Text style={styles.oldPrice}>${post.oldPrice}</Text>
+                <Text style={styles.newPrice}>  ${post.newPrice} </Text>
                 / night
             </Text>
 
-            <Text style={styles.totalPrice}>$230 total</Text>
+            <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
         </View>
     )
 }
