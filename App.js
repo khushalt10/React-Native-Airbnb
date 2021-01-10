@@ -15,14 +15,15 @@ import {
 import DestinationSearchScreen from './src/screens/DestinationSearch';
 import GuestsScreen from './src/screens/Guests';
 import SearchResultScreen from './src/screens/SearchResults';
+import 'react-native-gesture-handler'
+import HomeScreen from './src/screens/Home';
+import Router from './src/navigation/Router';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.container}>
-        <GuestsScreen />
-      </SafeAreaView>
+        <Router />
     </>
   );
 };

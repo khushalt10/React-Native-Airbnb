@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import styles from './styles'
@@ -7,10 +8,12 @@ export default function GuestsScreen() {
     const [adults, setAdults] = useState(0)
     const [children, setChildren] = useState(0)
     const [infants, setInfants] = useState(0)
+    const navigation = useNavigation()
 
     return (
-        <View>
-            <View style={styles.row}>
+        <View style={{ justifyContent: 'space-between', height: '100%'}}>
+            <View>
+                <View style={styles.row}>
                 <View>
                     <Text style={{ fontWeight: 'bold' }}>Adults</Text>
                     <Text style={{ color: '#8d8d8d' }}>Ages 13 or above</Text>
@@ -29,7 +32,7 @@ export default function GuestsScreen() {
                 </View>
             </View>
 
-            <View style={styles.row}>
+                <View style={styles.row}>
                 <View>
                     <Text style={{ fontWeight: 'bold' }}>Children</Text>
                     <Text style={{ color: '#8d8d8d' }}>Ages 2 to 12</Text>
@@ -48,7 +51,7 @@ export default function GuestsScreen() {
                 </View>
             </View>
 
-            <View style={styles.row}>
+                <View style={styles.row}>
                 <View>
                     <Text style={{ fontWeight: 'bold' }}>Infants</Text>
                     <Text style={{ color: '#8d8d8d' }}>Below age 2</Text>
@@ -66,6 +69,22 @@ export default function GuestsScreen() {
                     </Pressable>
                 </View>
             </View>
+            </View>
+
+           
+                <Pressable style={{ 
+                    marginBottom: 20, 
+                    backgroundColor: '#f15454',
+                    height: 50,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginHorizontal: 20,
+                    borderRadius: 10
+                }}
+                    onPress={() => navigation.navigate('Search Results')}
+                >
+                    <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold'}}>Search</Text>
+                </Pressable>
         </View>
     )
 }
